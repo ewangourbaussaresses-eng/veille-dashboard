@@ -1,0 +1,26 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Installer
+        run: pip install -e ".[dev]"
+      - name: Tests
+        run: python -m pytest -q
+        env:
+          # Jamais de clé en clair : le secret est optionnel, l'outil fonctionne sans.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
