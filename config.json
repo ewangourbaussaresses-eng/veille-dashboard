@@ -1,0 +1,34 @@
+{
+  "profile": {
+    "name": "Développeur",
+    "role": "développeur / indépendant",
+    "interests": ["ia", "python", "open source", "sécurité"],
+    "top_n": 5
+  },
+  "sources": [
+    {
+      "type": "rss",
+      "name": "Hacker News",
+      "url": "https://news.ycombinator.com/rss"
+    },
+    {
+      "type": "rss",
+      "name": "Le Monde Informatique",
+      "url": "https://www.lemondeinformatique.fr/flux-rss/thematique/toutes-les-actualites/rss.xml"
+    },
+    {
+      "type": "github",
+      "language": "python",
+      "days": 7,
+      "limit": 10
+    },
+    {
+      "type": "reddit",
+      "subreddit": "MachineLearning",
+      "limit": 10
+    }
+  ],
+  "notify": {
+    "channels": ["console", "file"]
+  }
+}
